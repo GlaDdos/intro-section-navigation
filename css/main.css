@@ -1,0 +1,367 @@
+* {
+  font-family: "Epilogue", sans-serif;
+  font-size: 18px;
+}
+* body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightcoral;
+}
+* body div.wrapper {
+  background-color: hsl(0deg, 0%, 98%);
+  position: relative;
+  width: 375px;
+  overflow: hidden;
+}
+* body div.wrapper.dark .overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: hsl(0deg, 0%, 8%);
+  opacity: 0.85;
+}
+* body div.wrapper.dark .overlay.transparent {
+  opacity: 0;
+}
+* body div.wrapper header {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5rem 1rem;
+}
+* body div.wrapper header button {
+  cursor: pointer;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: none;
+  background-color: unset;
+  align-self: end;
+}
+* body div.wrapper header nav {
+  display: none;
+  box-sizing: border-box;
+  position: absolute;
+  padding: 1rem;
+  top: 0;
+  right: 0;
+  flex-direction: column;
+  width: 60%;
+  max-width: 220px;
+  height: 100%;
+  color: hsl(0deg, 0%, 41%);
+  background-color: hsl(0deg, 0%, 98%);
+  overflow: hidden;
+}
+@-webkit-keyframes opening {
+  from {
+    right: -220px;
+  }
+  to {
+    right: 0;
+  }
+}
+@keyframes opening {
+  from {
+    right: -220px;
+  }
+  to {
+    right: 0;
+  }
+}
+@-webkit-keyframes closing {
+  from {
+    right: 0;
+  }
+  to {
+    right: -220px;
+  }
+}
+@keyframes closing {
+  from {
+    right: 0;
+  }
+  to {
+    right: -220px;
+  }
+}
+* body div.wrapper header nav.opened {
+  -webkit-animation-name: opening;
+          animation-name: opening;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  display: flex;
+}
+* body div.wrapper header nav.closing {
+  -webkit-animation-name: closing;
+          animation-name: closing;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+* body div.wrapper header nav.closed {
+  display: none;
+}
+* body div.wrapper header nav ul {
+  list-style: none;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+* body div.wrapper header nav ul .submenu-wrapper {
+  position: relative;
+}
+* body div.wrapper header nav ul li {
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+* body div.wrapper header nav ul li:hover {
+  color: hsl(0deg, 0%, 8%);
+}
+* body div.wrapper header nav ul li.sub {
+  position: relative;
+}
+* body div.wrapper header nav ul li.sub::after {
+  content: "";
+  right: -1rem;
+  bottom: 0.3rem;
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-image: url("../images/icon-arrow-down.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+}
+* body div.wrapper header nav ul li.sub + ul {
+  overflow: hidden;
+  height: 0;
+}
+* body div.wrapper header nav ul li.sub + ul.open {
+  height: auto;
+  overflow: visible;
+}
+* body div.wrapper header nav ul li.sub.open::after {
+  transform: rotate(180deg) translateY(-0.2rem);
+}
+* body div.wrapper header nav ul li img {
+  margin-right: 0.5rem;
+  height: 1rem;
+}
+* body div.wrapper header nav div.login-area ul {
+  padding: 0;
+  align-items: center;
+}
+* body div.wrapper header nav div.login-area ul li {
+  font-size: 0.8rem;
+}
+* body div.wrapper header nav div.login-area ul li.border {
+  width: 100%;
+  justify-content: center;
+  border: 1px solid hsl(0deg, 0%, 41%);
+  border-radius: 0.8rem;
+  padding: 0.5rem 0;
+}
+* body div.wrapper main picture img {
+  width: 100%;
+}
+* body div.wrapper main section div.content {
+  display: flex;
+  flex-direction: column;
+}
+* body div.wrapper main section div.content h1 {
+  margin: 2.5rem 1rem 0 1rem;
+  font-size: 1.95rem;
+  text-align: center;
+}
+* body div.wrapper main section div.content p {
+  margin: 1rem 1rem 0 1rem;
+  font-size: 0.9rem;
+  color: hsl(0deg, 0%, 41%);
+  text-align: center;
+  line-height: 1.5rem;
+}
+* body div.wrapper main section div.content button {
+  margin-top: 1rem;
+  align-self: center;
+  width: 40%;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: hsl(0deg, 0%, 98%);
+  background-color: hsl(0deg, 0%, 8%);
+  border: 1px solid hsl(0deg, 0%, 8%);
+  border-radius: 15px;
+  padding: 0.8rem 0;
+}
+* body div.wrapper main section div.content button:hover {
+  background-color: transparent;
+  color: hsl(0deg, 0%, 8%);
+}
+* body div.wrapper main section footer {
+  display: flex;
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+* body div.wrapper main section footer img {
+  box-sizing: border-box;
+  max-height: 100%;
+  padding: 0.4rem 1rem;
+  width: 25%;
+}
+* body div.wrapper main section footer img:first-child {
+  padding-left: 1rem;
+  padding-right: 0;
+}
+
+@media (min-width: 1000px) {
+  * body div.wrapper {
+    width: 1440px;
+  }
+  * body div.wrapper.dark .overlay {
+    display: none;
+  }
+  * body div.wrapper header {
+    display: flex;
+    align-items: center;
+    margin-left: 2.1rem;
+  }
+  * body div.wrapper header button {
+    display: none;
+  }
+  * body div.wrapper header nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    overflow: visible;
+    margin-left: 2.5rem;
+  }
+  * body div.wrapper header nav.closed {
+    display: flex;
+  }
+  * body div.wrapper header nav ul {
+    flex-direction: row;
+    margin: 0;
+    width: auto;
+  }
+  * body div.wrapper header nav ul li {
+    display: flex;
+    align-self: center;
+    width: auto;
+    margin-bottom: 0;
+    margin-right: 2rem;
+    font-size: 0.8rem;
+  }
+  * body div.wrapper header nav ul li.sub {
+    margin-right: 3rem;
+  }
+  * body div.wrapper header nav ul li.sub::after {
+    right: -0.8rem;
+    bottom: 0.3rem;
+  }
+  * body div.wrapper header nav ul li.sub + ul {
+    box-sizing: border-box;
+    position: absolute;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: white;
+    border-radius: 0.5rem;
+    top: 2rem;
+    height: 0;
+    padding-left: 0;
+    box-shadow: 0px 0px 26px -14px rgb(66, 68, 90);
+  }
+  * body div.wrapper header nav ul li.sub + ul li {
+    padding: 0.5rem 1.5rem;
+    margin: 0;
+  }
+  * body div.wrapper header nav ul li.sub + ul li:first-child {
+    padding-top: 1.5rem;
+  }
+  * body div.wrapper header nav ul li.sub + ul li:last-child {
+    padding-bottom: 1.5rem;
+  }
+  * body div.wrapper header nav ul li.sub + ul.open {
+    display: flex;
+  }
+  * body div.wrapper header nav div.login-area ul li.border {
+    padding: 0.7rem 1rem;
+    border-width: 2px;
+    border-color: hsl(0deg, 0%, 41%);
+  }
+  * body div.wrapper header nav div.login-area ul li.border:hover {
+    border-color: hsl(0deg, 0%, 8%);
+    color: hsl(0deg, 0%, 8%);
+  }
+  * body div.wrapper main {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    margin-bottom: 7rem;
+    margin-top: 3rem;
+  }
+  * body div.wrapper main picture {
+    margin-right: 7rem;
+  }
+  * body div.wrapper main picture img {
+    max-width: 480px;
+    width: auto;
+  }
+  * body div.wrapper main section {
+    display: flex;
+    flex-direction: column;
+    align-self: end;
+    max-width: 50%;
+    margin-left: 7rem;
+  }
+  * body div.wrapper main section div.content h1 {
+    font-size: 4.5rem;
+    text-align: left;
+    margin-left: 0;
+    margin-right: 9rem;
+  }
+  * body div.wrapper main section div.content p {
+    font-size: 1rem;
+    text-align: justify;
+    max-width: 60%;
+    line-height: 1.55rem;
+    margin: 0;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  * body div.wrapper main section div.content button {
+    border-radius: 0.6rem;
+    width: 7.5rem;
+    align-self: flex-start;
+    padding: 0.9rem 0;
+    margin-bottom: 2.5rem;
+  }
+  * body div.wrapper main section footer {
+    height: 50px;
+    width: 70%;
+    justify-content: space-between;
+    margin-bottom: 0;
+  }
+  * body div.wrapper main section footer img {
+    width: 25%;
+  }
+  * body div.wrapper main section footer img:nth-child(2) {
+    width: 20%;
+  }
+}/*# sourceMappingURL=main.css.map */
